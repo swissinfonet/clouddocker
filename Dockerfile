@@ -5,7 +5,7 @@ ENV XMRSTAK_CMAKE_FLAGS -DXMR-STAK_COMPILE=native -DCUDA_ENABLE=OFF -DOpenCL_ENA
 
 RUN apt-get update \
     && set -x \
-    && apt-get install -qq --no-install-recommends -y ca-certificates cmake libhwloc-dev libssl-dev \
+    && apt-get install -qq --no-install-recommends -y ca-certificates cmake git libhwloc-dev libssl-dev \
     && git clone $GIT_REPOSITORY \
     && cd /xmr-stak \
     && cmake ${XMRSTAK_CMAKE_FLAGS} . \
