@@ -18,4 +18,4 @@ RUN apt-get update \
 VOLUME /mnt
 WORKDIR /mnt
 ENTRYPOINT ["/usr/local/bin/xmr-stak"]
-CMD ["--config /usr/local/bin/config.txt"]
+CMD ["/usr/local/bin/config.txt"]
