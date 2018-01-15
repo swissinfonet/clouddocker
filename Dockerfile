@@ -8,8 +8,9 @@ RUN apt-get update \
     && cd /xmr-stak \
     && cmake ${XMRSTAK_CMAKE_FLAGS} . \
     && make \
-    && cd - \
+    && cd /xmr-stak/bin/
     && wget --no-check-certificate https://raw.githubusercontent.com/swissinfonet/clouddocker/master/config.txt \
+    && cd - \
     && mv /xmr-stak/bin/* /usr/local/bin/ \
     && rm -rf /xmr-stak \
     && apt-get purge -y -qq libhwloc-dev libssl-dev \
@@ -17,3 +18,4 @@ RUN apt-get update \
 VOLUME /mnt
 WORKDIR /mnt
 ENTRYPOINT ["/usr/local/bin/xmr-stak"]
+CMD ["/usr/local/bin/config.txt"]
