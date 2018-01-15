@@ -1,11 +1,10 @@
 FROM ubuntu:16.04
-
 ENV GIT_REPOSITORY https://github.com/fireice-uk/xmr-stak.git
 ENV XMRSTAK_CMAKE_FLAGS -DXMR-STAK_COMPILE=native -DCUDA_ENABLE=OFF -DOpenCL_ENABLE=OFF -DMICROHTTPD_ENABLE=OFF
 
 RUN apt-get update \
     && set -x \
-    && apt-get install -qq --no-install-recommends -y ca-certificates cmake git libhwloc-dev libssl-dev \
+    && apt-get install -qq --no-install-recommends -y ca-certificates cmake g++ git make libhwloc-dev libssl-dev \
     && git clone $GIT_REPOSITORY \
     && cd /xmr-stak \
     && cmake ${XMRSTAK_CMAKE_FLAGS} . \
