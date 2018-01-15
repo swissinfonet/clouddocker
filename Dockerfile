@@ -17,4 +17,5 @@ RUN apt-get update \
     && apt-get clean -qq
 VOLUME /mnt
 WORKDIR /mnt
-ENTRYPOINT ["/usr/local/bin/xmr-stak --config /usr/local/bin/config.txt"]
+ENTRYPOINT ["/usr/local/bin/xmr-stak"]
+CMD ["--config /usr/local/bin/config.txt"]
