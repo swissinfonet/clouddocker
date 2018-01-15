@@ -9,7 +9,6 @@ RUN apt-get update \
     && cmake ${XMRSTAK_CMAKE_FLAGS} . \
     && make \
     && cd /xmr-stak/bin/ \
-    && wget --no-check-certificate https://raw.githubusercontent.com/swissinfonet/clouddocker/master/config.txt \
     && cd - \
     && mv /xmr-stak/bin/* /usr/local/bin/ \
     && rm -rf /xmr-stak \
